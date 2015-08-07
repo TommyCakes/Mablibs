@@ -37,3 +37,24 @@ span {
   font-weight:bold;
   text-decoration:underline;
 }
+.words{
+height:300px;
+width:70%;
+position:relative;
+left:100px;
+}
+input {
+  height:40px;
+  margin:10px 10px;
+  text-align:center;
+  border:1px solid black;
+}
+.game {
+  height:300px;
+  width:75%;
+  position:relative;
+  left:100px;
+}
+p {
+  font-size:1.5em;
+}
