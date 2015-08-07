@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+  <meta charset="UTF-8">
+  <title>Madlibs!</title>
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js">
+   </script>
+   <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- <div>
+    <label>Name:</label>
+    <input type="text" ng-model="yourName" placeholder="Your name?">
+      <hr>
+      <h1> Hello {{ yourName }}!</h1>
+  </div> -->
+  <header>
+  <img class='smile' src="https://photos-5.dropbox.com/t/2/AAAYVO2A7QdLcVd_VB1OVrxssSJq5FOEvfMUFH9xKgmiUQ/12/15152010/png/32x32/1/1438959600/0/2/mad-lib-happy-face.png/CIrnnAcgASACIAMgBCAFIAYgBygBKAI/4_yurSVYWZDQ9wUwpmplPAidMTOH5JCZi5jHI8C-nTE?size=800x600&size_mode=2" />
+  <img class='logo' src="https://photos-3.dropbox.com/t/2/AADFyKOB5RC5_jQRN-GqwSipfXb7ym-kLLIQdFRicDkyfg/12/15152010/png/32x32/1/1438959600/0/2/ng-mad-libs-logo.png/CIrnnAcgASACIAMgBCAFIAYgBygBKAI/eS66ujO0LLT9gOuJ5Ix5W_W2SVabAIIWgWFZf2ubFZs?size=800x600&size_mode=2"  />
+
+  <h1>Automate This!</h1>
+  </header>
+
+  <section class='words'>
+    <h2> Provide the following words:</h2>
+      <input type="text" ng-model="maleName" placeholder="malename" />
+      <input type="text" ng-model="jobTitle" placeholder="jobtitle" />
+      <input type="text" ng-model="tediousTask" placeholder="tediousTask" />
+      <input type="text" ng-model="dirtyTask" placeholder="dirtyTask" />
+      <input type="text" ng-model="celebrity" placeholder="celebrity" />
+      <input type="text" ng-model="uselessSkill" placeholder="uselessSkill" />
+      <input type="text" ng-model="adjective" placeholder="adjective" />
+      <input type="text" ng-model="obnoxiousCelebrity" placeholder="obnoxiousCelebrity" />
+      <input type="text" ng-model="hugeNumber" placeholder="hugeNumber" />
+
+  <section class='game'>
+    <p><span> {{maleName}} </span> was a <span> {{jobTitle}} </span>
+      who loved technology. Although he/she loved parts of her/his job, she absolutely hated
+      <span>{{tediousTask}}</span> and <span>{{dirtyTask}}</span>. So, <span>{{maleName}}</span> met with his/her
+      life mentor <span>{{celebrity}}</span> who told him/her to learn how to <span>{{uselessSkill}}</span> with Thinkful.
+        Thinkful didn't offer a course on<span>{{uselessSkill}}</span> so he/she studied programming instead.
+          What a great decision! With his/her new skills,<span>{{maleName}}</span> built a(n)
+      <span>{{adjective}} </span>robot named <span> {{obnoxiuousCelbertity}}</span> that not only loved
+      <span>{{dirtyTask}}</span> but did it <span>{{hugeNumber}}</span> faster. </p>
+  </section>
+
+</body>
+</html>

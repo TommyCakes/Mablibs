@@ -1,0 +1,39 @@
+body{
+   margin:60px;
+   font-family:helvetica;
+   /*border:2px solid black;*/
+}
+header {
+  border:2px solid black;
+  height:142px;
+
+}
+.smile {
+  height:100px;
+  padding:20px;
+  border:2px solid black;
+}
+.logo {
+  height:50px;
+  position:absolute;
+  padding:20px;
+  right:200px;
+}
+h1 {
+  right:190px;
+  position:absolute;
+  top:110px;
+  font-size:40px;
+}
+h2 {
+  margin-left:40px;
+
+}
+li {
+  display:inline-block;
+}
+span {
+  font-size:1em;
+  font-weight:bold;
+  text-decoration:underline;
+}
