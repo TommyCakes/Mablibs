@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="myApp">
 <head>
   <meta charset="UTF-8">
   <title>Madlibs!</title>
    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js">
    </script>
    <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
-<body>
+<body ng-controller="myCtrl as app">
   <!-- <div>
     <label>Name:</label>
     <input type="text" ng-model="yourName" placeholder="Your name?">
@@ -15,36 +17,58 @@
       <h1> Hello {{ yourName }}!</h1>
   </div> -->
   <header>
-  <img class='smile' src="https://photos-5.dropbox.com/t/2/AAAYVO2A7QdLcVd_VB1OVrxssSJq5FOEvfMUFH9xKgmiUQ/12/15152010/png/32x32/1/1438959600/0/2/mad-lib-happy-face.png/CIrnnAcgASACIAMgBCAFIAYgBygBKAI/4_yurSVYWZDQ9wUwpmplPAidMTOH5JCZi5jHI8C-nTE?size=800x600&size_mode=2" />
-  <img class='logo' src="https://photos-3.dropbox.com/t/2/AADFyKOB5RC5_jQRN-GqwSipfXb7ym-kLLIQdFRicDkyfg/12/15152010/png/32x32/1/1438959600/0/2/ng-mad-libs-logo.png/CIrnnAcgASACIAMgBCAFIAYgBygBKAI/eS66ujO0LLT9gOuJ5Ix5W_W2SVabAIIWgWFZf2ubFZs?size=800x600&size_mode=2"  />
+  <img class='smile' src="images/face.png" />
+  <img class='logo' src="images/logo.png"  />
 
   <h1>Automate This!</h1>
   </header>
 
-  <section class='words'>
-    <h2> Provide the following words:</h2>
-      <input type="text" ng-model="maleName" placeholder="malename" />
-      <input type="text" ng-model="jobTitle" placeholder="jobtitle" />
-      <input type="text" ng-model="tediousTask" placeholder="tediousTask" />
-      <input type="text" ng-model="dirtyTask" placeholder="dirtyTask" />
-      <input type="text" ng-model="celebrity" placeholder="celebrity" />
-      <input type="text" ng-model="uselessSkill" placeholder="uselessSkill" />
-      <input type="text" ng-model="adjective" placeholder="adjective" />
-      <input type="text" ng-model="obnoxiousCelebrity" placeholder="obnoxiousCelebrity" />
-      <input type="text" ng-model="hugeNumber" placeholder="hugeNumber" />
+
+  <section id='words' class='container'>
+    <div>
+      <button class="btn btn-primary btn-lg" id='male' ng-click="app.genderChoice('male')">  <i class="fa fa-male"></i>Male </button>
+      <button class="btn btn-primary btn-lg" id="female" ng-click="app.genderChoice('female')"> <i class="fa fa-female"></i> Female </button>
+
+   </div>
+   <div ng-show="app.gender">
+    <h3> Provide the following words:  <br>
+       <i class="fa fa-pencil fa-1x"></i></h3>
+
+      <input type="text" ng-show="app.gender == 'male'" ng-model="app.maleName" placeholder="Male Name" />
+      <input type="text" ng-show="app.gender == 'female'" ng-model="app.femaleName" placeholder="app.femaleName" />
+      <input type="text" ng-model="app.jobTitle" placeholder="Job Title" />
+      <input type="text" ng-model="app.tediousTask" placeholder="Tedious Task" />
+      <input type="text" ng-model="app.dirtyTask" placeholder="Dirty Task" />
+      <input type="text" ng-model="app.celebrity" placeholder="Celebrity" />
+      <input type="text" ng-model="app.uselessSkill" placeholder="Useless Skill" />
+      <input type="text" ng-model="app.adjective" placeholder="Adjective" />
+      <input type="text" ng-model="app.obnoxiousCelebrity" placeholder="Obnoxious Celebrity" />
+      <input type="text" ng-model="app.hugeNumber" placeholder="Huge Number" />
     </section>
     <hr>
-  <section class='game'>
-    <p><span> {{maleName}} </span> was a <span> {{jobTitle}} </span>
-      who loved technology. Although he/she loved parts of her/his job, she absolutely hated
-      <span>{{tediousTask}}</span> and <span>{{dirtyTask}}</span>. So, <span>{{maleName}}</span> met with his/her
-      life mentor <span>{{celebrity}}</span> who told him/her to learn how to <span>{{uselessSkill}}</span> with Thinkful.
-        Thinkful didn't offer a course on<span>{{uselessSkill}}</span> so he/she studied programming instead.
-          What a great decision! With his/her new skills,<span>{{maleName}}</span> built a(n)
-      <span>{{adjective}} </span>robot named <span> {{obnoxiuousCelbertity}}</span> that not only loved
-      <span>{{dirtyTask}}</span> but did it <span>{{hugeNumber}}</span> faster. </p>
+  <section id='game' class='container'>
+    <p ng-show="app.gender == 'male'"><span> {{app.maleName}} </span> was a <span> {{app.jobTitle}} </span>
+      who loved technology. Although he loved parts of his job, he absolutely hated
+      <span>{{app.tediousTask}}</span> and <span>{{app.dirtyTask}}</span>. So, <span>{{maleName}}</span> met with his
+      life mentor <span>{{app.celebrity}}</span> who told him to learn how to <span>{{app.uselessSkill}}</span> with Thinkful.
+        Thinkful didn't offer a course on<span>{{app.uselessSkill}}</span> so he studied programming instead.
+          What a great decision! With his new skills,<span>{{app.maleName}}</span> built a(n)
+      <span>{{app.adjective}} </span>robot named <span> {{app.obnoxiousCelebrity}}</span> that not only loved
+      <span>{{app.dirtyTask}}</span> but did it <span>{{app.hugeNumber}}</span> faster. </p>
+
+      <p ng-show="app.gender == 'female'"><span> {{app.femaleName}} </span> was a <span> {{app.jobTitle}} </span>
+        who loved technology. Although she loved parts of her job, she absolutely hated
+        <span>{{app.tediousTask}}</span> and <span>{{app.dirtyTask}}</span>. So, <span>{{femaleName}}</span> met with her
+        life mentor <span>{{app.celebrity}}</span> who told her to learn how to <span>{{app.uselessSkill}}</span> with Thinkful.
+          Thinkful didn't offer a course on<span>{{app.uselessSkill}}</span> so she studied programming instead.
+            What a great decision! With her new skills,<span>{{app.femaleName}}</span> built a(n)
+        <span>{{app.adjective}} </span>robot named <span> {{app.obnoxiousCelebrity}}</span> that not only loved
+        <span>{{app.dirtyTask}}</span> but did it <span>{{app.hugeNumber}}</span> faster. </p>
+
+
   </section>
   <hr>
 
+<script src="app.js"></script>
 </body>
 </html>
