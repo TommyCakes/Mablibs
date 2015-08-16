@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="myApp">
 <head>
   <meta charset="UTF-8">
   <title>Madlibs!</title>
    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js">
    </script>
+   <script src="/bower_components/angular-messages/angular-messages.js"></script>
    <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
-<body>
+<body ng-controller="myCtrl as app">
   <!-- <div>
     <label>Name:</label>
     <input type="text" ng-model="yourName" placeholder="Your name?">
@@ -15,36 +18,103 @@
       <h1> Hello {{ yourName }}!</h1>
   </div> -->
   <header>
-  <img class='smile' src="https://photos-5.dropbox.com/t/2/AAAYVO2A7QdLcVd_VB1OVrxssSJq5FOEvfMUFH9xKgmiUQ/12/15152010/png/32x32/1/1438959600/0/2/mad-lib-happy-face.png/CIrnnAcgASACIAMgBCAFIAYgBygBKAI/4_yurSVYWZDQ9wUwpmplPAidMTOH5JCZi5jHI8C-nTE?size=800x600&size_mode=2" />
-  <img class='logo' src="https://photos-3.dropbox.com/t/2/AADFyKOB5RC5_jQRN-GqwSipfXb7ym-kLLIQdFRicDkyfg/12/15152010/png/32x32/1/1438959600/0/2/ng-mad-libs-logo.png/CIrnnAcgASACIAMgBCAFIAYgBygBKAI/eS66ujO0LLT9gOuJ5Ix5W_W2SVabAIIWgWFZf2ubFZs?size=800x600&size_mode=2"  />
+  <img class='smile' src="images/face.png" alt="" />
+  <img class='logo' src="images/logo.png" alt=""  />
 
   <h1>Automate This!</h1>
   </header>
 
-  <section class='words'>
-    <h2> Provide the following words:</h2>
-      <input type="text" ng-model="maleName" placeholder="malename" />
-      <input type="text" ng-model="jobTitle" placeholder="jobtitle" />
-      <input type="text" ng-model="tediousTask" placeholder="tediousTask" />
-      <input type="text" ng-model="dirtyTask" placeholder="dirtyTask" />
-      <input type="text" ng-model="celebrity" placeholder="celebrity" />
-      <input type="text" ng-model="uselessSkill" placeholder="uselessSkill" />
-      <input type="text" ng-model="adjective" placeholder="adjective" />
-      <input type="text" ng-model="obnoxiousCelebrity" placeholder="obnoxiousCelebrity" />
-      <input type="text" ng-model="hugeNumber" placeholder="hugeNumber" />
-    </section>
+
+  <section id='words' class='container' ng-hide="(app.myForm.$submitted)">
+    <!-- novalidate -->
+    <!-- ng-submit="app.submit() -->
+    <div>
+      <button class="btn btn-primary btn-lg" id='male' ng-click="app.genderChoice('male')">  <i class="fa fa-male"></i>Male </button>
+      <button class="btn btn-primary btn-lg" id="female" ng-click="app.genderChoice('female')" > <i class="fa fa-female"></i> Female </button>
+
+   </div>
+    <form name="app.myForm"  ng-submit="app.submit()" >
+      <!-- <input type="text" name="user" ng-model="name" required ng-minlength="3" ng-maxlength="20" /> -->
+
+
+
+      <!-- <button type="submit" class="btn btn-primary" ng-disabled="app.myForm.$invalid">Submit</button> -->
+
+      <!-- <div ng-messages="app.myForm.user.$error" style="color:red" role="alert">
+        <div ng-message="required">NEEDED!</div>
+        <div ng-message="minlength">Too small</div>
+        <div ng-message="maxlength">Too long</div>
+      </div> -->
+
+
+   <div ng-show="app.gender ">
+    <h3> Provide the following words:  <br>
+       <i class="fa fa-pencil fa-1x"></i></h3>
+
+
+
+      <input type="text" ng-show="app.gender == 'male'" ng-model="app.maleName" name="user" placeholder="Male Name" required ng-minlength="3" ng-maxlength="20"  />
+      <input type="text" ng-show="app.gender == 'female'" ng-model="app.femaleName" placeholder="Female Name" ng-minlength="3" ng-maxlength="20" />
+      <input type="text" ng-model="app.jobTitle" placeholder="Job Title" required ng-minlength="3" ng-maxlength="20" />
+      <input type="text" ng-model="app.tediousTask" placeholder="Tedious Task" required ng-minlength="3" ng-maxlength="20"  />
+      <input type="text" ng-model="app.dirtyTask" placeholder="Dirty Task" required ng-minlength="3" ng-maxlength="20"  />
+      <input type="text" ng-model="app.celebrity" placeholder="Celebrity" required ng-minlength="3" ng-maxlength="20"  />
+      <input type="text" ng-model="app.uselessSkill" placeholder="Useless Skill" required ng-minlength="3" ng-maxlength="20"  />
+      <input type="text" ng-model="app.adjective" placeholder="Adjective" required ng-minlength="3" ng-maxlength="20"  />
+      <input type="text" ng-model="app.obnoxiousCelebrity" placeholder="Obnoxious Celebrity" required ng-minlength="3" ng-maxlength="20"  />
+      <input type="text" ng-model="app.hugeNumber" placeholder="Huge Number" required ng-minlength="3" ng-maxlength="20"  />
+
+      <div ng-messages="app.myForm.user.$error" ng-if="app.myForm.user.$touched">
+              <p ng-message="minlength">Your name is too short.</p>
+              <p ng-message="maxlength">Your name is too long.</p>
+              <p ng-message="required">Your name is required.</p>
+            </div>
+          </div>
+
+ <!-- type="submit" -->
+ <!-- reset button - app.formReset
+ng-click="invoke reset function"-->
+
+<div class="buttonHolder">
+
+
+      <button id="gen" class="btn btn-primary btn-lg" type="submit"
+       ng-disabled="app.myForm.$invalid">
+        <i class="fa fa-bolt"></i>Generate my Madlib </button>
+
+    </form>
+  </section>
     <hr>
-  <section class='game'>
-    <p><span> {{maleName}} </span> was a <span> {{jobTitle}} </span>
-      who loved technology. Although he/she loved parts of her/his job, she absolutely hated
-      <span>{{tediousTask}}</span> and <span>{{dirtyTask}}</span>. So, <span>{{maleName}}</span> met with his/her
-      life mentor <span>{{celebrity}}</span> who told him/her to learn how to <span>{{uselessSkill}}</span> with Thinkful.
-        Thinkful didn't offer a course on<span>{{uselessSkill}}</span> so he/she studied programming instead.
-          What a great decision! With his/her new skills,<span>{{maleName}}</span> built a(n)
-      <span>{{adjective}} </span>robot named <span> {{obnoxiuousCelbertity}}</span> that not only loved
-      <span>{{dirtyTask}}</span> but did it <span>{{hugeNumber}}</span> faster. </p>
+
+
+  <section id='game' class='container' >
+    <!-- ng-show="app.gender == 'male'" && submit is valid (look up submitted form)-->
+
+    <p ng-show="app.gender == 'male' && (app.myForm.$submitted)" ><span> {{app.maleName}} </span> was a <span> {{app.jobTitle}} </span>
+      who loved technology. Although he loved parts of his job, he absolutely hated
+      <span>{{app.tediousTask}} </span> and <span>{{app.dirtyTask}}</span>. So, <span>{{maleName}}</span> met with his
+      life mentor <span>{{app.celebrity}}</span> who told him to learn how to <span>{{app.uselessSkill}}</span> with Thinkful.
+        Thinkful didn't offer a course on<span>{{app.uselessSkill}}</span> so he studied programming instead.
+          What a great decision! With his new skills,<span>{{app.maleName}}</span> built a(n)
+      <span>{{app.adjective}} </span>robot named <span> {{app.obnoxiousCelebrity}}</span> that not only loved
+      <span>{{app.dirtyTask}}</span> but did it <span>{{app.hugeNumber}}</span> faster. </p>
+
+
+      <p ng-show="app.gender == 'female' && (app.myForm.$submitted)"><span> {{app.femaleName}} </span> was a <span> {{app.jobTitle}} </span>
+        who loved technology. Although she loved parts of her job, she absolutely hated
+        <span>{{app.tediousTask}}</span> and <span>{{app.dirtyTask}}</span>. So, <span>{{femaleName}}</span> met with her
+        life mentor <span>{{app.celebrity}}</span> who told her to learn how to <span>{{app.uselessSkill}}</span> with Thinkful.
+          Thinkful didn't offer a course on<span>{{app.uselessSkill}}</span> so she studied programming instead.
+            What a great decision! With her new skills,<span>{{app.femaleName}}</span> built a(n)
+        <span>{{app.adjective}} </span>robot named <span> {{app.obnoxiousCelebrity}}</span> that not only loved
+        <span>{{app.dirtyTask}}</span> but did it <span>{{app.hugeNumber}}</span> faster. </p>
+
+<button class="btn btn-primary btn-lg" ng-click="app.formReset()" ng-show="(app.myForm.$submitted)">Reset</button>
   </section>
   <hr>
+<script src="app.js"></script>
+
+
 
 </body>
 </html>

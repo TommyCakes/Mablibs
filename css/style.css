@@ -1,18 +1,51 @@
 body{
    margin:60px;
    font-family:helvetica;
+   text-align: center;
    /*border:2px solid black;*/
 }
 header {
   border:2px solid black;
-  height:142px;
-
+}
+.container {
+  margin:20px;
+  width:50%;
 }
 .smile {
-  height:100px;
   padding:20px;
-  border:2px solid black;
+  height:10px;
 }
+.fa-male, .fa-bolt {
+  padding-right:5px;
+}
+#female {
+  background:#F9A7B0;
+  border: 1px solid #F9A7B0;
+}
+#male {
+  background: #306EFF;
+  border: 1px solid #306EFF;
+  width: 110px;
+}
+#gen {
+  background: #306EFF;
+  color:yellow;
+  float: right;
+    padding: 5px;
+    margin-top: 20px;
+}
+span {
+  font-size:1.6em;
+  font-weight:bold;
+  text-decoration:underline;
+}
+#game {
+  font-size:1.4em;
+  width:75%;
+
+}
+
+/*
 .logo {
   height:50px;
   position:absolute;
@@ -32,12 +65,7 @@ h2 {
 li {
   display:inline-block;
 }
-span {
-  font-size:1em;
-  font-weight:bold;
-  text-decoration:underline;
-}
-.words{
+#words{
 height:300px;
 width:70%;
 position:relative;
@@ -57,4 +85,12 @@ input {
 }
 p {
   font-size:1.5em;
+}
+button {
+  background: lightGrey;
+  padding: 10px;
+  position:relative;
+  left:120px;
+  width:25%;*/
+
 }
