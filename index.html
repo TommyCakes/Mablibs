@@ -18,13 +18,16 @@
       <h1> Hello {{ yourName }}!</h1>
   </div> -->
   <header>
+
   <img class='smile' src="images/face.png" alt="" />
   <img class='logo' src="images/logo.png" alt=""  />
+
 
   <h1>Automate This!</h1>
   </header>
 
 
+<<<<<<< HEAD
   <section id='words' class='container' ng-hide="(app.myForm.$submitted)">
     <!-- novalidate -->
     <!-- ng-submit="app.submit() -->
@@ -93,11 +96,13 @@ ng-click="invoke reset function"-->
     <p ng-show="app.gender == 'male' && (app.myForm.$submitted)" ><span> {{app.maleName}} </span> was a <span> {{app.jobTitle}} </span>
       who loved technology. Although he loved parts of his job, he absolutely hated
       <span>{{app.tediousTask}} </span> and <span>{{app.dirtyTask}}</span>. So, <span>{{maleName}}</span> met with his
+
       life mentor <span>{{app.celebrity}}</span> who told him to learn how to <span>{{app.uselessSkill}}</span> with Thinkful.
         Thinkful didn't offer a course on<span>{{app.uselessSkill}}</span> so he studied programming instead.
           What a great decision! With his new skills,<span>{{app.maleName}}</span> built a(n)
       <span>{{app.adjective}} </span>robot named <span> {{app.obnoxiousCelebrity}}</span> that not only loved
       <span>{{app.dirtyTask}}</span> but did it <span>{{app.hugeNumber}}</span> faster. </p>
+
 
 
       <p ng-show="app.gender == 'female' && (app.myForm.$submitted)"><span> {{app.femaleName}} </span> was a <span> {{app.jobTitle}} </span>
@@ -109,12 +114,12 @@ ng-click="invoke reset function"-->
         <span>{{app.adjective}} </span>robot named <span> {{app.obnoxiousCelebrity}}</span> that not only loved
         <span>{{app.dirtyTask}}</span> but did it <span>{{app.hugeNumber}}</span> faster. </p>
 
+
 <button class="btn btn-primary btn-lg" ng-click="app.formReset()" ng-show="(app.myForm.$submitted)">Reset</button>
+
   </section>
   <hr>
 <script src="app.js"></script>
-
-
 
 </body>
 </html>

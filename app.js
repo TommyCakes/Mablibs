@@ -1,4 +1,6 @@
+
 var app = angular.module('myApp', ['ngMessages']);
+
   // app.controller('myCtrl', function($scope) {
   //   $scope.maleName = "Tommy"
 
@@ -16,7 +18,6 @@ var app = angular.module('myApp', ['ngMessages']);
     this.hugeNumber = "";
 
     this.gender = "";
-
 
     this.genderChoice = function(choice){
       if ( choice === "male") {
