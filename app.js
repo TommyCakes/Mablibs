@@ -1,5 +1,5 @@
 
-var app = angular.module('myApp', ['ngMessages']);
+var app = angular.module('myApp', ['ngMessages', 'ngAnimate']);
 
   // app.controller('myCtrl', function($scope) {
   //   $scope.maleName = "Tommy"

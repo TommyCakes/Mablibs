@@ -9,6 +9,7 @@
    <link rel="stylesheet" href="css/style.css">
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<script type="text/javascript" src="https://code.angularjs.org/1.2.18/angular-animate.min.js"></script>
 </head>
 <body ng-controller="myCtrl as app">
   <!-- <div>
@@ -26,8 +27,6 @@
   <h1>Automate This!</h1>
   </header>
 
-
-<<<<<<< HEAD
   <section id='words' class='container' ng-hide="(app.myForm.$submitted)">
     <!-- novalidate -->
     <!-- ng-submit="app.submit() -->
@@ -43,11 +42,11 @@
 
       <!-- <button type="submit" class="btn btn-primary" ng-disabled="app.myForm.$invalid">Submit</button> -->
 
-      <div ng-messages="app.myForm.user.$error" style="color:red" role="alert">
+      <!-- <div ng-messages="app.myForm.user.$error" style="color:red" role="alert">
         <div ng-message="required">NEEDED!</div>
         <div ng-message="minlength">Too small</div>
         <div ng-message="maxlength">Too long</div>
-      </div>
+      </div> -->
 
 
    <div ng-show="app.gender ">
